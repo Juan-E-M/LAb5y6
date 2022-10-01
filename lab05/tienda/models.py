@@ -17,3 +17,16 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombre
+
+class Cliente(models.Model):
+    nombre = models.CharField(max_length=200)
+    apellido = models.CharField(max_length=200)
+    dni = models.CharField(max_length=8)
+    telefono = models.CharField(max_length=10)
+    direccion = models.CharField(max_length=200)
+    email = models.CharField(max_length=100)
+    f_nacimiento = models.DateField('date published')
+    f_publicacion = models.DateField('date published')
+
+    def __str__(self):
+        return self.nombre

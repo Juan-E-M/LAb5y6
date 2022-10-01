@@ -2,16 +2,16 @@
 {% block content_2 %}
     <h1 class="my-4">My Store</h1>
           <div class="list-group">
-              {%for cat in catgories_list%}
+              {%for cat in categories_list%}
                 <a href="{% url 'tienda:cat_prod' cat.id %}" class="list-group-item">{{ cat.nombre }}</a>
               {% endfor %}
           </div>
 {% endblock %}
 
 {% block content %}
-<h1>Mi tiendita en index</h1>
+<h1>{{ categoria.nombre }}</h1>
 <div class="row">
-    {%for prod in product_list%}
+    {%for prod in categoria.producto_set.all%}
     <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
             <a href="producto/{{ prod.id }}/">
@@ -19,7 +19,7 @@
             </a>
             <div class="card body">
                 <h4 class="card-title">
-                    <a href="producto/{{ prod.id }}/">{{ prod.nombre }}</a>
+                    <a href="{% url 'tienda:producto' prod.id %}">{{ prod.nombre }}</a>
                 </h4>
                 <h5>S/ {{ prod.precio }}</h5>
                 <p class="card-text">Categoria: {{ prod.categoria.nombre }}</p>
@@ -32,4 +32,3 @@
     {% endfor %}
 </div>
 {% endblock %}
-

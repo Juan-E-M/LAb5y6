@@ -1,4 +1,12 @@
 {% extends "layout.html" %}
+{% block content_2 %}
+    <h1 class="my-4">My Store</h1>
+          <div class="list-group">
+              {%for cat in catgories_list%}
+                <a href="{% url 'tienda:cat_prod' cat.id %}" class="list-group-item">{{ cat.nombre }}</a>
+              {% endfor %}
+          </div>
+{% endblock %}
 {% block content %}
 <h1>{{ producto.nombre }}</h1>
 {% endblock %}
