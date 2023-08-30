@@ -43,10 +43,13 @@
     <div class="container">
 
       <div class="row">
-
         <div class="col-lg-3">
-          {% block content_2 %}
-          {% endblock %}
+          <h1 class="my-4">My Store</h1>
+          <div class="list-group">
+              {%for cat in catgories_list%}
+                <a href="{% url 'tienda:cat_prod' cat.id %}" class="list-group-item">{{ cat.nombre }}</a>
+              {% endfor %}
+          </div>
         </div>
         <!-- /.col-lg-3 -->
 
@@ -59,13 +62,10 @@
 
         </div>
         <!-- /.col-lg-9 -->
-
       </div>
       <!-- /.row -->
-
     </div>
     <!-- /.container -->
-
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
@@ -73,11 +73,8 @@
       </div>
       <!-- /.container -->
     </footer>
-
     <!-- Bootstrap core JavaScript -->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
   </body>
-
 </html>

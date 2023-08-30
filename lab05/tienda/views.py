@@ -18,4 +18,4 @@ def producto(request, producto_id):
 def cat_prod(request, categoria_id):
     categories_list = Categoria.objects.all()
     category = get_object_or_404(Categoria, pk=categoria_id)
-    return render(request, 'productos_cat.html',{'categories_list':categories_list,'categoria':category})
+    return render(request, 'productos_cat.html',{'catgories_list':categories_list,'categoria':category})
